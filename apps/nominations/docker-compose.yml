@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  nominations:
+    image: nominations-app:staging
+    container_name: nominations_app
+    ports:
+      - "4000:3000"
+    environment:
+      # Ajoute tes variables d'environnement ici
+      NODE_ENV: staging
+    restart: unless-stopped

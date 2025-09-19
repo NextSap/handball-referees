@@ -3,6 +3,10 @@
 @source "../../../components/**/*.{ts,tsx}";
 @source "../**/*.{ts,tsx}";
 
+@theme {
+  --breakpoint-ssm: 500px;
+}
+
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
