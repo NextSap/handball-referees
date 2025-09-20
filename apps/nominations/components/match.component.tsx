@@ -19,7 +19,7 @@ const MatchComponent = (props: MatchComponentProps) => {
     return (
         <div className={`flex ssm:flex-row flex-col ${props.index % 2 === 0 ? "bg-white" : "bg-gray-100"} py-3`}>
             <div className={`flex flex-col items-center`}>
-                <p className="text-center">{props.match.serie_name} - {formatDate}</p>
+                <p className="text-center font-bold">{props.match.serie_name} - {formatDate}</p>
                 <p className="text-center">{props.match.venue_name}</p>
                 <div className="h-[1px] w-20 bg-gray-200 my-1"/>
                 <div className="flex w-full justify-center">

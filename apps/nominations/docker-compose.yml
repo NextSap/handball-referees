@@ -1,7 +1,7 @@
-version: "3.9"
-
 services:
   nominations:
+    networks:
+      - global
     image: nominations-app:staging
     container_name: nominations_app
     ports:
@@ -10,3 +10,7 @@ services:
       # Ajoute tes variables d'environnement ici
       NODE_ENV: staging
     restart: unless-stopped
+
+networks:
+  global:
+    external: true
