@@ -198,7 +198,7 @@ export default Page;
 const groupByWeekend = (result: { matches: MatchType[], competitions: CompetitionType[] }) => {
     let groupedByWeek: Record<string, MatchType[]> = {};
     result.matches.forEach((match) => {
-        const weekStart = getLastMonday(dayjs(match.date, "YYYY-MM-DD"));
+        const weekStart = getLastMonday(dayjs(match.date, "YYYY-MM-DD").day() == 0 ? dayjs(match.date, "YYYY-MM-DD").subtract(3, "day") : dayjs(match.date, "YYYY-MM-DD")); // Week starts on Sunday, substract 1 to stay on the right week
         const weekKey = weekStart.format("YYYY/MM/DD");
 
         if (!groupedByWeek[weekKey]) groupedByWeek[weekKey] = [];

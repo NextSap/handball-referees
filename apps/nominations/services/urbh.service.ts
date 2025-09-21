@@ -2,66 +2,6 @@ import {api} from "@/config/ky.config";
 import {MatchList} from "@/schemes/match.scheme";
 import {CompetitionList} from "@/schemes/competition.scheme";
 
-export const sortedSeries = [
-    // "MSHL",
-    "MBC",
-    "WBC",
-    "MFDC",
-    "MSDC",
-    "WFDC",
-    "WFDRC",
-    "WSDC",
-    "D1M",
-    "D1D",
-    "PM",
-    "U18",
-    "U18 F",
-    "U16F",
-    "U14 F",
-
-    "HL",
-    "IA",
-    "HR",
-    "SD",
-    "J18",
-    "M18",
-
-    "xx",
-    "yy",
-
-    // "N/A"
-]
-
-export const series = [
-    // "Super Handball League",
-    "Lotto Handball Cup Men",
-    "Lotto Handball Cup Women",
-    "First Division Men",
-    "Second Division Men",
-    "First Division Women",
-    "First Division Women (R)",
-    "Second Division Women",
-    "D1 LFH Messieurs",
-    "D1 LFH Dames",
-    "Promotion",
-    "U18 LFH",
-    "U18 LFH Filles",
-    "U16 LFH Filles",
-    "U14 LFH Filles",
-
-    "Heren Liga",
-    "Dames Liga",
-    "Heren Regio/senioren",
-    "Dames Regio",
-    "J18",
-    "M18",
-
-    "Friendly games with ref",
-    "Friendly games without ref",
-
-    // "Other matches",
-]
-
 const season_id = 5; // 2025-2026
 
 export const getNationalMatches = async (startDate: string, endDate: string) => {
