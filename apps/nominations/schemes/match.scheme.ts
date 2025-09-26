@@ -65,10 +65,22 @@ export const SHLMatch = z.object({
         HomeTeam: z.object({
             PublicTeamId: z.string(),
             TeamName: z.string(),
+            Club: z.object({
+                ClubLogo: z.object({
+                    Bucket: z.string(),
+                    Hash: z.string(),
+                })
+            })
         }),
         AwayTeam: z.object({
             PublicTeamId: z.string(),
             TeamName: z.string(),
+            Club: z.object({
+                ClubLogo: z.object({
+                    Bucket: z.string(),
+                    Hash: z.string(),
+                })
+            })
         }),
     })
 });

@@ -1,0 +1,42 @@
+{
+  "en": {
+    "refereeFilter": "Filter by referee or delegate",
+    "teamFilter": "Filter by team",
+    "thisWeek": "This week",
+    "nextWeek": "Next week",
+    "InXWeeks": "In {{count}} weeks",
+    "loading": "Data are loading...",
+    "referees": "Referees",
+    "delegates": "Delegates"
+  },
+  "fr": {
+    "refereeFilter": "Filtrer par arbitre ou par observateur",
+    "teamFilter": "Filtrer par équipe",
+    "thisWeek": "Cette semaine",
+    "nextWeek": "Semaine prochaine",
+    "InXWeeks": "Dans {{count}} semaines",
+    "loading": "Les données sont entrain de charger...",
+    "referees": "Arbitres",
+    "delegates": "Observateurs"
+  },
+  "nl": {
+    "refereeFilter": "Filter op scheidsrechter of waarnemer",
+    "teamFilter": "Filter op ploeg",
+    "thisWeek": "Deze week",
+    "nextWeek": "Volgende week",
+    "InXWeeks": "Over {{count}} weken",
+    "loading": "Gegevens worden geladen...",
+    "referees": "Scheidsrechters",
+    "delegates": "Waarnemers"
+  },
+  "de": {
+    "refereeFilter": "Filtern nach Schiedsrichter oder Beobachter",
+    "teamFilter": "Filtern nach Team",
+    "thisWeek": "Diese Woche",
+    "nextWeek": "Nächste Woche",
+    "InXWeeks": "In {{count}} Wochen",
+    "loading": "Daten werden geladen...",
+    "referees": "Schiedsrichters",
+    "delegates": "Beobachters"
+  }
+}

@@ -8,10 +8,10 @@ export const Referee = z.object({
 
 export type RefereeType = z.infer<typeof Referee>;
 
-export const SHLReferee = z.object({
+export const SHLOfficial = z.object({
     PublicMatchId: z.string(),
     MatchOfficial: z.array(z.object({
-        OfficialId: z.number(),
+        OfficialId: z.number().nullable(),
         FunctionDescription: z.string(),
         FirstName: z.string(),
         Infix: z.string().nullable(),

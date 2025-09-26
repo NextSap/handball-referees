@@ -1,7 +1,8 @@
 FROM node:18-alpine AS base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
-RUN apk add --no-cache libc6-compat && \
+RUN apk add --no-cache libc6-compat ca-certificates curl && \
+    update-ca-certificates && \
     corepack enable && \
     pnpm install turbo --global
 

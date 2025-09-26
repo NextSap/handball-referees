@@ -1,11 +1,14 @@
 import React from 'react';
 import {MatchType} from "@/schemes/match.scheme";
 import dayjs from "dayjs";
+import translate from "../public/translate.json";
+import {LangType} from "@/services/storage.service";
 
 type MatchComponentProps = {
     sortedMatches: MatchType[];
     index: number;
     match: MatchType;
+    lang: LangType;
 }
 
 const baseImage = "https://admin.handballbelgium.be/lms_league_ws/public/img/";
@@ -16,6 +19,8 @@ const MatchComponent = (props: MatchComponentProps) => {
 
     const isPostponed = props.match.game_status_id === 6;
 
+    const text = translate[props.lang];
+
     return (
         <div className={`flex ssm:flex-row flex-col ${props.index % 2 === 0 ? "bg-white" : "bg-gray-100"} py-3`}>
             <div className={`flex flex-col items-center`}>
@@ -25,7 +30,7 @@ const MatchComponent = (props: MatchComponentProps) => {
                 <div className="flex w-full justify-center">
                     <div className="flex flex-col justify-center items-center w-32">
                         <img
-                            src={baseImage + props.match.home_club_logo_img_url}
+                            src={(props.match.organization_name == "shl" ? "" : baseImage) + props.match.home_club_logo_img_url}
                             alt={props.match.home_team_short_name}
                             className="w-8 h-8"/>
                         <p className="text-center">{props.match.home_team_short_name}</p>
@@ -37,16 +42,16 @@ const MatchComponent = (props: MatchComponentProps) => {
                     </div>
                     <div className="flex flex-col justify-center items-center w-32">
                         <img
-                            src={baseImage + props.match.away_club_logo_img_url}
+                            src={(props.match.organization_name == "shl" ? "" : baseImage) + props.match.away_club_logo_img_url}
                             alt={props.match.away_team_short_name}
                             className="w-8 h-8"/>
                         <p className="text-center">{props.match.away_team_short_name}</p>
                     </div>
                 </div>
             </div>
-            <div className="flex ssm:flex-col flex-row justify-center ssm:mt-0 mt-2">
+            <div className="flex ssm:flex-col flex-row justify-center ssm:mt-0 mt-2 ml-0 ssm:ml-5">
                 <div className="flex flex-col ssm:w-32 w-56">
-                    <p className="font-bold underline">Referees</p>
+                    <p className="font-bold underline">{text.referees}</p>
                     {props.match.referees.length == 0 ? <p>x</p> :
                         props.match.referees.map((referee) => {
                             if (referee !== null) {
@@ -59,8 +64,8 @@ const MatchComponent = (props: MatchComponentProps) => {
                         })}
                 </div>
                 <div className="flex flex-col w-32">
-                    <p className="font-bold underline">Delegates</p>
-                    {!props.match.delegates ? <p>x</p> :
+                    <p className="font-bold underline">{text.delegates}</p>
+                    {!props.match.delegates || props.match.delegates.length == 0 ? <p>x</p> :
                         props.match.delegates.map((delegate) => {
                             if (delegate !== null) {
                                 return (
