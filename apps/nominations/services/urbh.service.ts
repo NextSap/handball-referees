@@ -136,8 +136,6 @@ export const getMatches = async (startDate: string, endDate: string) => {
         (a, b) => competitionOrder[a.serie_reference] - competitionOrder[b.serie_reference]
     );
 
-    console.log("Belgian Loaded");
-
     return {
         matches: matches,
         competitions: competitions

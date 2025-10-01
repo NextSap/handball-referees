@@ -29,11 +29,7 @@ export const getToken = async () => {
 }
 
 export const getSHLMatches = async () => {
-    console.log("Token request for SHL");
-
     const token = await getToken();
-
-    console.log("DEBUG 3", token);
 
     const url = `https://app-sportlinked-production.sportlink.com/entity/common/memberportal/app/team/TeamProgram?PublicTeamId=${publicTeamId}&v=3`;
 

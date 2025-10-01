@@ -53,11 +53,11 @@ const MatchComponent = (props: MatchComponentProps) => {
                 <div className="flex flex-col ssm:w-32 w-56">
                     <p className="font-bold underline">{text.referees}</p>
                     {props.match.referees.length == 0 ? <p>x</p> :
-                        props.match.referees.map((referee) => {
+                        props.match.referees.map((referee, index) => {
                             if (referee !== null) {
                                 return (
                                     <p key={referee.id}>
-                                        {referee.surname} {referee.firstname.substring(0, 1).toUpperCase()}.
+                                        {index+1}. {referee.surname} {referee.firstname.substring(0, 1).toUpperCase()}.
                                     </p>
                                 );
                             }
@@ -66,11 +66,11 @@ const MatchComponent = (props: MatchComponentProps) => {
                 <div className="flex flex-col w-32">
                     <p className="font-bold underline">{text.delegates}</p>
                     {!props.match.delegates || props.match.delegates.length == 0 ? <p>x</p> :
-                        props.match.delegates.map((delegate) => {
+                        props.match.delegates.map((delegate, index) => {
                             if (delegate !== null) {
                                 return (
                                     <p key={delegate.id}>
-                                        {delegate.surname} {delegate.firstname.substring(0, 1).toUpperCase()}.
+                                        {index+1}. {delegate.surname} {delegate.firstname.substring(0, 1).toUpperCase()}.
                                     </p>
                                 );
                             }
