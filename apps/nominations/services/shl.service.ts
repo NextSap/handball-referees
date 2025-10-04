@@ -49,7 +49,7 @@ export const getSHLMatches = async () => {
         for (const official of officials.MatchOfficial) {
             official.Infix ??= "";
             official.LastName == "Afgeschermd" ? official.LastName = "Name hidden" : official.LastName;
-            if (official.FunctionDescription === "Scheidsrechter 2") {
+            if (official.FunctionDescription.startsWith("Scheidsrechter")) {
                 referees.push({
                     id: official.OfficialId || 0,
                     firstname: official.FirstName,
@@ -81,8 +81,8 @@ export const getSHLMatches = async () => {
             home_team_short_name: match.Match.HomeTeam.TeamName,
             away_team_short_name: match.Match.AwayTeam.TeamName,
             game_status_id: 1,
-            home_club_logo_img_url: "/api/image?bucket=" + match.Match.HomeTeam.Club.ClubLogo.Bucket + "&hash=" + match.Match.HomeTeam.Club.ClubLogo.Hash,
-            away_club_logo_img_url: "/api/image?bucket=" + match.Match.AwayTeam.Club.ClubLogo.Bucket + "&hash=" + match.Match.AwayTeam.Club.ClubLogo.Hash,
+            home_club_logo_img_url: "/shl_logo/" + match.Match.HomeTeam.Club.ClubLogo.Hash + ".png",
+            away_club_logo_img_url: "/shl_logo/" + match.Match.AwayTeam.Club.ClubLogo.Hash + ".png",
             referees: referees,
             delegates: delegates,
         }))
