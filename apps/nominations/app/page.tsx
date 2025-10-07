@@ -226,12 +226,16 @@ const Page = () => {
                         const saturday = dayjs(date).add(5, "day").format("DD/MM");
                         const sunday = dayjs(date).add(6, "day").format("DD/MM");
 
-                        let weekName = text.InXWeeks.replace("{{count}}", index.toString());
+                        console.log(week)
+
+                        let weekName;
 
                         if (index == 0) {
                             weekName = text.thisWeek;
                         } else if (index == 1) {
                             weekName = text.nextWeek;
+                        } else {
+                            weekName = text.InXWeeks.replace("{{count}}", index.toString());
                         }
 
                         return (
@@ -263,7 +267,6 @@ const groupByWeekend = (result: {
     SHLMatches: MatchType[]
 }) => {
     let groupedByWeek: Record<string, MatchType[]> = {};
-    console.log("SHL matches: ", result.SHLMatches);
     result.belgianMatches.forEach((match) => {
         const weekStart = getLastMonday(dayjs(match.date, "YYYY-MM-DD").day() == 0 ? dayjs(match.date, "YYYY-MM-DD").subtract(3, "day") : dayjs(match.date, "YYYY-MM-DD")); // Week starts on Sunday, substract 1 to stay on the right week
         const weekKey = weekStart.format("YYYY/MM/DD");
@@ -294,7 +297,7 @@ const groupByWeekend = (result: {
                 const dateA = dayjs(a.date + " " + a.time, "YYYY-MM-DD hh:mm:ss");
                 const dateB = dayjs(b.date + " " + b.time, "YYYY-MM-DD hh:mm:ss");
 
-                return dateA.millisecond() - dateB.millisecond();
+                return dateA.valueOf() - dateB.valueOf();
             })
             .sort((a, b) => competitionOrder[a.serie_reference] - competitionOrder[b.serie_reference]);
     });
@@ -304,7 +307,7 @@ const groupByWeekend = (result: {
             .sort(([keyA], [keyB]) => {
                 const dateA = dayjs(keyA, "YYYY/MM/DD");
                 const dateB = dayjs(keyB, "YYYY/MM/DD");
-                return dateA.millisecond() - dateB.millisecond();
+                return dateA.valueOf() - dateB.valueOf();
             })
     );
 
